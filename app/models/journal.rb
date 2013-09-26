@@ -11,7 +11,7 @@
 # lastmod  1 aprile 2008
 
 class Journal < ActiveRecord::Base
-  has_many :issues, :order=>:position
+  has_many :issues, -> { order 'position' }
 
   belongs_to :created_by, :foreign_key=>'created_by', :class_name=>'User'
   belongs_to :updated_by, :foreign_key=>'updated_by', :class_name=>'User'

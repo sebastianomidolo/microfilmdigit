@@ -13,7 +13,7 @@ class Issue < ActiveRecord::Base
   belongs_to :journal
   acts_as_list :scope => :journal
 
-  has_many :articles, :order=>:position
+  has_many :articles, -> {order 'position'}
 
   belongs_to :created_by, :foreign_key=>'created_by', :class_name=>'User'
   belongs_to :updated_by, :foreign_key=>'updated_by', :class_name=>'User'

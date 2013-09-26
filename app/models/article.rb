@@ -12,13 +12,13 @@
 # lastmod  1 aprile 2008
 
 class Article < ActiveRecord::Base
-  has_paper_trail
+  # has_paper_trail
 
 
   belongs_to :issue
   acts_as_list :scope => :issue
 
-  has_many :pages, :order=>:position
+  has_many :pages, -> {order 'position'}
 
   belongs_to :created_by, :foreign_key=>'created_by', :class_name=>'User'
   belongs_to :updated_by, :foreign_key=>'updated_by', :class_name=>'User'
