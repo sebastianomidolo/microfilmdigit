@@ -1,0 +1,28 @@
+<%
+# lastmod 18 dicembre 2008 (uso Journal.titoli_pubblicati)
+# lastmod 17 dicembre 2008 (escludo journal con id=29)
+# lastmod 15 dicembre 2008 (escludo journal con id=30)
+# lastmod 25 agosto 2008 (issue>issues)
+# lastmod 21 luglio 2008 (ordinamento corretto, usando 'keytit')
+# lastmod 12 maggio 2008
+%>
+
+
+<% riviste=Journal.titoli_pubblicati %>
+
+
+<table class="elenco_riviste">
+<% riviste.each do |r| %>
+
+<tr>
+ <th>
+  <%= link_to(r.title) %>
+ </th>
+ <td>
+  <%= r.issues.size %> fascicoli
+ </td>
+</tr>
+
+<% end %>
+
+</table>
